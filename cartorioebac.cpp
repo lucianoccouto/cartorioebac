@@ -5,61 +5,68 @@
 
 int registro() //fubção responsável por cadastrar os usuários no sistema
 {
-	//inicio da criação das variáveis/string
-	char arquivo[40];
-    char cpf[40];
-    char nome[40];
-    char sobrenome[40];
-    char cargo[40];
-    //final da criação de variáveis/string
+
+	{
+	    system("cls");
+	    
+	    //inicio da criação das variáveis/string
+	    char arquivo[40];
+        char cpf[40];
+        char nome[40];
+        char sobrenome[40];
+        char cargo[40];        
+        //final da criação de variáveis/string
+        
     
-    printf("Digite o CPF a ser cadastrado: "); //coletando informação do usuário
-    scanf("%s", cpf); //%s refere-se a string
+        printf("Digite o CPF a ser cadastrado: "); //coletando informação do usuário
+        scanf("%s", cpf); //%s refere-se a string
     
-    strcpy(arquivo, cpf); //responsavel por copiar os valores das string
+        strcpy(arquivo, cpf); //responsavel por copiar os valores das string
     
-    FILE *file; // Cria o arquivo
-    file = fopen(arquivo,"w"); // Cria o arquivo
-    fprintf(file,cpf); //salva o valor da variavel
-    fclose(file); // fecha o arquivo
+        FILE *file; // Cria o arquivo
+        file = fopen(arquivo,"w"); // Cria o arquivo
+        fprintf(file,cpf); //salva o valor da variavel
+        fclose(file); // fecha o arquivo
     
-    file = fopen(arquivo, "a");
-    fprintf(file, ",");
-    fclose(file);
+        file = fopen(arquivo, "a");
+        fprintf(file, ",");
+        fclose(file);
     
-    printf("Digite o nome a ser cadastrado: ");
-    scanf("%s", nome);
+        printf("Digite o nome a ser cadastrado: ");
+        scanf("%s", nome);
     
-    file = fopen(arquivo, "a");
-    fprintf(file,nome);
-    fclose(file);
+        file = fopen(arquivo, "a");
+        fprintf(file,nome);
+        fclose(file);
     
-    file = fopen(arquivo, "a");
-    fprintf(file, ",");
-    fclose(file);
+        file = fopen(arquivo, "a");
+        fprintf(file, ",");
+        fclose(file);
     
-    printf("Digite o sobrenome a ser cadastrado: ");
-    scanf("%s", sobrenome);
+        printf("Digite o sobrenome a ser cadastrado: ");
+        scanf("%s", sobrenome);
     
-    file = fopen(arquivo, "a");
-    fprintf(file,sobrenome);
-    fclose(file);
+        file = fopen(arquivo, "a");
+        fprintf(file,sobrenome);
+        fclose(file);
     
-    file = fopen(arquivo, "a");
-    fprintf(file, ",");
-    fclose(file);
+        file = fopen(arquivo, "a");
+        fprintf(file, ",");
+        fclose(file);
     
-    printf("Digite o cargo a ser cadastrado: ");
-    scanf("%s", cargo);
+        printf("Digite o cargo a ser cadastrado: ");
+        scanf("%s", cargo);
     
-    file = fopen(arquivo, "a");
-    fprintf(file,cargo);
-    fclose(file);
+        file = fopen(arquivo, "a");
+        fprintf(file,cargo);
+        fclose(file);
+    }
     
-    system("pause");
     
     
 }
+			
+
 
 int consulta()
 {
@@ -120,49 +127,69 @@ int main ()
 {
 	int opcao=0; //definindo variáveis
 	int laco=1;
+	char senhadigitada[]="a";
+	int comparacao;
 	
-	for(laco=1;laco=1;)
+	printf("### Cartório da EBAC ###\n\n"); //inicio do menu
+	printf("Login de administrador!\n\nDigitea sua senha: ");
+	scanf("%s", senhadigitada);
+	
+	system("cls");
+	
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0)
 	{
+	   system("cls");
+	   for(laco=1;laco=1;)
+	   {
 	
-	    system("cls");
+	       system("cls");
 	    
-    	setlocale (LC_ALL, "portuguese"); //Definido liguagem
+    	   setlocale (LC_ALL, "portuguese"); //Definido liguagem
 	
-    	printf("### Cartório da EBAC ###\n\n"); //inicio do menu
-    	printf("Selecione a opção desejada\n\n");
-    	printf("\t1 - Registrar nomes\n");
-        printf("\t2 - Consultar nomes\n");
-    	printf("\t3 - Deletar nomes\n");
-    	printf("\t4 - Sair do sistema\n\n");
-    	printf ("Opção: "); //fim do menu
+    	   printf("### Cartório da EBAC ###\n\n"); //inicio do menu
+       	   printf("Selecione a opção desejada\n\n");
+    	   printf("\t1 - Registrar nomes\n");
+           printf("\t2 - Consultar nomes\n");
+    	   printf("\t3 - Deletar nomes\n");
+    	   printf("\t4 - Sair do sistema\n\n");
+    	   printf ("Opção: "); //fim do menu
     	
-    	scanf("%d", &opcao); //Armazenando escolha do usuário
+    	   scanf("%d", &opcao); //Armazenando escolha do usuário
     	
-    	system("cls");
+    	   system("cls");
     	
-    	switch(opcao) //Inicio da seleção
-    	{
-    		case 1:
-    	    registro();
-    		break;
+    	   switch(opcao) //Inicio da seleção
+    	     {
+    		     case 1:
+    	         registro();
+    		     break;
     		
-			case 2:
-		    consulta();
-			break;
+			     case 2:
+		         consulta();
+			     break;
 				
-			case 3:
-			deletar();
-			break;
+			     case 3:
+			     deletar();
+			     break;
 			
-			case 4:
-			printf("Obrigado por utilizar o sistema!\n");
-	        return 0;
-	        break;
+			     case 4:
+			     printf("Obrigado por utilizar o sistema!\n");
+	             return 0;
+	             break;
 	        
-			default:
-			printf("Essa opção não está disponivel!\n\n");
-			system("pause");
-			break;
-		}
+			     default:
+			     printf("Essa opção não está disponivel!\n\n");
+			     system("pause");
+			     break;
+		     }
+       }       
     }
+    else
+      printf("Senha incorreta!\n\n");
+	  system("pause");
+	  
+	  system("cls");
 }
+
