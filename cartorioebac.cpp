@@ -102,15 +102,14 @@ int deletar()
 	FILE *file;
 	file = fopen(cpf,"r");
 		
-	if(file == NULL);
+	if(file == NULL)
 	{
 		printf("O usuário não se encontra cadastrado no sistema!\n");
 		system("pause");
 	}
 	
     else
-    
-	    printf("O Usuário foi deletado com sucesso!\n");
+        printf("O Usuário foi deletado com sucesso!\n");
 	    system("pause");
 	
 	
@@ -129,11 +128,12 @@ int main ()
 	    
     	setlocale (LC_ALL, "portuguese"); //Definido liguagem
 	
-    	printf ("### Cartório da EBAC ###\n\n"); //inicio do menu
-    	printf ("\tSelecione a opção desejada\n\n");
-    	printf ("\t1 - Registrar nomes\n");
-        printf ("\t2 - Consultar nomes\n");
-    	printf ("\t3 - Deletar nomes\n\n");
+    	printf("### Cartório da EBAC ###\n\n"); //inicio do menu
+    	printf("Selecione a opção desejada\n\n");
+    	printf("\t1 - Registrar nomes\n");
+        printf("\t2 - Consultar nomes\n");
+    	printf("\t3 - Deletar nomes\n");
+    	printf("\t4 - Sair do sistema\n\n");
     	printf ("Opção: "); //fim do menu
     	
     	scanf("%d", &opcao); //Armazenando escolha do usuário
@@ -153,7 +153,12 @@ int main ()
 			case 3:
 			deletar();
 			break;
-	
+			
+			case 4:
+			printf("Obrigado por utilizar o sistema!\n");
+	        return 0;
+	        break;
+	        
 			default:
 			printf("Essa opção não está disponivel!\n\n");
 			system("pause");
